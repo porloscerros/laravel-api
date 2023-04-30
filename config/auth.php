@@ -4,6 +4,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Authentication Default User
+    |--------------------------------------------------------------------------
+    |
+    | This option controls the default authentication admin user and password
+    | reset options for your application when run UserSeeder or DatabaseSeeder.
+    |
+    */
+
+    'admin' => [
+        'username' => env("ADMIN_USERNAME", "admin"),
+        'email' => env("ADMIN_EMAIL", "admin@example.com"),
+        'password' => env("ADMIN_PASSWORD", "admin"),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Authentication Defaults
     |--------------------------------------------------------------------------
     |
