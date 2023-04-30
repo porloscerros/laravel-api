@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
         DB::table('settings')->insert([
             'value' => config("bookkeeper.default.base_currency"),
         ]);
+        $this->call(AccountSeeder::class);
     }
 }
