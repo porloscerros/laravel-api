@@ -56,7 +56,6 @@ return [
         'accounts' => [
             'groups' => [
                 "Assets" => [
-                    // types
                     "Cash",
                     "Bank",
                     "Virtual Accounts",
@@ -67,7 +66,6 @@ return [
                     "Other Assets",
                 ],
                 "Liabilities" => [
-                    // types
                     "Credit Card",
                     "Foreign Liabilities",
                     "Loans",
@@ -83,6 +81,30 @@ return [
                     'type_id' => 1,
                     'conversion_rate' => 1,
                     'cash_based_account' => 1,
+                ],
+            ],
+        ],
+        'categories' => [
+            'groups' => [
+                "(Uncategorized)" => [
+                    "(New Account)" => [
+                        "(New Account)",
+                    ],
+                ],
+                "Transfer" => [
+                    "(Transfer)" => [
+                        "(Transfer)",
+                    ],
+                ],
+                "Income" => [
+                    "Other" => [
+                        "Other",
+                    ],
+                ],
+                "Expense" => [
+                    "Other" => [
+                        "Other",
+                    ],
                 ],
             ],
         ],
