@@ -37,25 +37,25 @@ class AccountController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Account $account): JsonResponse|AccountResource
+    public function show(Account $model): JsonResponse|AccountResource
     {
-        return new AccountResource($this->repository->find($account));
+        return new AccountResource($this->repository->find($model));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(AccountStoreRequest $request, Account $account): JsonResponse|AccountResource
+    public function update(AccountStoreRequest $request, Account $model): JsonResponse|AccountResource
     {
-        return new AccountResource($this->repository->update($request->validated(), $account));
+        return new AccountResource($this->repository->update($request->validated(), $model));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Account $account): JsonResponse
+    public function destroy(Account $model): JsonResponse
     {
-        $this->repository->delete($account);
+        $this->repository->delete($model);
         return response()->json(['message' => "Successful deleted record"], 204);
     }
 }

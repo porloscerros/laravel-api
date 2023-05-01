@@ -17,6 +17,14 @@ class GroupController extends Controller
     ) {}
 
     /**
+     * Display a listing of the resource type relationship.
+     */
+    public function types(): JsonResponse
+    {
+        return response()->json(['data' => $this->repository->types()]);
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index(): JsonResponse|AnonymousResourceCollection
@@ -27,9 +35,9 @@ class GroupController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Group $group): JsonResponse|GroupResource
+    public function show(Group $model): JsonResponse|GroupResource
     {
-        return new GroupResource($this->repository->find($group));
+        return new GroupResource($this->repository->find($model));
     }
 
     /**
@@ -43,25 +51,17 @@ class GroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Group $group): JsonResponse|GroupResource
+    public function update(Request $request, Group $model): JsonResponse|GroupResource
     {
-        return new GroupResource($this->repository->update($request->validated(), $group));
+        return new GroupResource($this->repository->update($request->validated(), $model));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Group $group): JsonResponse
+    public function destroy(Group $model): JsonResponse
     {
-        $this->repository->delete($group);
+        $this->repository->delete($model);
         return response()->json(['message' => "Successful deleted record"], 204);
-    }
-
-    /**
-     * Display a listing of the resource type relationship.
-     */
-    public function types(): JsonResponse
-    {
-        return response()->json(['data' => $this->repository->types()]);
     }
 }

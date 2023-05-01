@@ -14,15 +14,13 @@ class CurrencyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
         return response()->json(['data' => Currency::all()]);
     }
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param CurrencyStoreRequest $request
      */
     public function store(CurrencyStoreRequest $request): JsonResponse
     {
@@ -32,21 +30,16 @@ class CurrencyController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  Currency  $currency
      */
-    public function show(Currency $currency): JsonResponse
+    public function show(Currency $model): JsonResponse
     {
-        return response()->json(['data' => $currency]);
+        return response()->json(['data' => $model]);
     }
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  CurrencyUpdateRequest  $request
-     * @param  Currency  $currency
      */
-    public function update(CurrencyUpdateRequest $request, Currency $currency): JsonResponse
+    public function update(CurrencyUpdateRequest $request, Currency $model): JsonResponse
     {
         // @TODO
         return response()->json(['message' => 'not available']);
@@ -54,10 +47,8 @@ class CurrencyController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  Currency  $currency
      */
-    public function destroy(Currency $currency): JsonResponse
+    public function destroy(Currency $model): JsonResponse
     {
         // @TODO
         return response()->json(['message' => 'not available']);
