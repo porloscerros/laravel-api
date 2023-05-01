@@ -21,15 +21,15 @@ class CategorySeeder extends Seeder
                 'name' => $group_name,
             ]);
             foreach ($categories as $category_name => $child_categories) {
-                $category = Category::firstOrCreate(
-                    ['name' => $category_name,],
-                    ['group_id' => $group->id,]
-                );
+                $category = Category::firstOrCreate([
+                    'name' => $category_name,
+                    'group_id' => $group->id,
+                ]);
                 foreach ($child_categories as $child_category_name) {
-                    ChildCategory::firstOrCreate(
-                        ['name' => $child_category_name,],
-                        ['parent_id' => $category->id,]
-                    );
+                    ChildCategory::firstOrCreate([
+                        'name' => $child_category_name,
+                        'parent_id' => $category->id,
+                    ]);
                 }
             }
         }
