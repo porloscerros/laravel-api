@@ -39,29 +39,4 @@ class GroupController extends Controller
     {
         return new GroupResource($this->repository->find($model));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): JsonResponse|GroupResource
-    {
-        return new GroupResource($this->repository->create($request->validated()));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Group $model): JsonResponse|GroupResource
-    {
-        return new GroupResource($this->repository->update($request->validated(), $model));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Group $model): JsonResponse
-    {
-        $this->repository->delete($model);
-        return response()->json(['message' => "Successful deleted record"], 204);
-    }
 }
