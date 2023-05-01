@@ -108,5 +108,26 @@ return [
                 ],
             ],
         ],
+        'transactions' => [
+            'statuses' => [
+                "None",
+                "Cleared",
+                "Reconciled",
+                "Void",
+            ],
+            'types' => [
+                "New account",
+                "Expense",
+                "Income",
+                "Transfer",
+            ],
+            'items' => [
+                "(System Generated Account)",
+                "Transfer",
+                "Unidentified expense",
+                "Unidentified income",
+                "Unnamed transaction",
+            ],
+        ]
     ],
 ];
